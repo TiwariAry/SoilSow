@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+
+    background-image: url("/static/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+h2, h3 {
+    color: #fff;
+    text-shadow: 1px 0 black, -1px 0 black, 0 1px black, 0 -1px black,
+               1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+
+.ai-explanation {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+    padding: 20px;
+    margin: 30px auto;
+    width: 80%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.ai-explanation h4 {
+    margin-bottom: 12px;
+    color: limegreen;
+}
+
+.ai-explanation p {
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 16px;
+}

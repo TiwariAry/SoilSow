@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SoilSow</title>
+    <link rel="icon" type="image" href="/../static/favicon.png">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='resultStyle.css') }}"/>
+</head>
+<body>
+    <h2>🌾 Crop Recommendation System</h2>
+
+    {% if result %}
+        <h3>{{ result }}</h3>
+    {% endif %}
+
+    {% if crop_explanation %}
+        <div class="ai-explanation">
+            <h4>Why this crop?</h4>
+            <p>{{ crop_explanation }}</p><br>
+            <p>{{ location_prediction }}</p>
+        </div>
+    {% endif %}
+
+</body>
+</html>

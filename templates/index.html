@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SoilSow</title>
+    <link rel="icon" type="image" href="/../static/favicon.png">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}"/>
+</head>
+<body>
+    <h2>🌾 Crop Recommendation System</h2>
+
+    <form method="POST" action="/predict">
+        <div class="inputs">
+            <div class="upperRow">
+                <label>Nitrogen (N)</label><br>
+                <input type="number" name="N" step="any" required><br>
+
+                <label>Phosphorus (P)</label><br>
+                <input type="number" name="P" step="any" required><br>
+
+                <label>Potassium (K)</label><br>
+                <input type="number" name="K" step="any" required><br>
+            </div>
+
+            <div class="lowerRow">
+                <label>Humidity (%)</label><br>
+                <input type="number" name="humidity" step="any" required><br>
+
+                <label>pH</label><br>
+                <input type="number" name="ph" step="any" required><br>
+
+                <label>Rainfall (mm)</label><br>
+                <input type="number" name="rainfall" step="any" required><br>
+            </div>
+
+            <div class="lastRow">
+                <label>Temperature (°C)</label><br>
+                <input type="number" name="temperature" step="any" required><br>
+            </div>
+        </div>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+        <h3>{{ result }}</h3>
+    {% endif %}
+</body>
+</html>
