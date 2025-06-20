@@ -4,6 +4,10 @@ import joblib
 
 import google.generativeai as genai
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 app = Flask(__name__)
 
 # Load trained model and label encoder
@@ -11,7 +15,7 @@ model = joblib.load("crop_model.pkl")
 label_encoder = joblib.load("label_encoder.pkl")
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyBeiywNUhJ5NEmcWg-kKQtAJW1T7FzKEp4")
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 gemini_model = genai.GenerativeModel("gemini-2.5-flash")
 
 # Home
@@ -63,4 +67,6 @@ def predict():
         return render_template("index.html", result=f"Error: {str(e)}")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
