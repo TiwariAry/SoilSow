@@ -15,11 +15,10 @@
         <h3>{{ result }}</h3>
     {% endif %}
 
-    {% if crop_explanation %}
+    {% if explanation %}
         <div class="ai-explanation">
             <h4>Why this crop?</h4>
-            <p>{{ crop_explanation }}</p><br>
-            <p>{{ location_prediction }}</p>
+            <p>{{ explanation }}</p><br>
         </div>
     {% endif %}
 

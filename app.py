@@ -54,14 +54,13 @@ def predict():
         The predicted crop is: {crop}.
         
         Please explain in one detailed and well-written paragraph why this crop is suitable for these conditions. Avoid using bullet points or numbering. Use simple, friendly, and natural language.
-        Also, give me the name of the possible locations in India where these conditions are present in seperate paragraph. Start this paragraph with ';' symbol.
+        Also, give me the name of the possible locations in India where these conditions are present in seperate paragraph.
         """
 
         response = gemini_model.generate_content(prompt)
         explanation = response.text.strip()
-        crop_explanation, location_prediction = explanation.split(';')
 
-        return render_template("result.html", result=f"Recommended Crop: {crop}", crop_explanation=crop_explanation, location_prediction=location_prediction)
+        return render_template("result.html", result=f"Recommended Crop: {crop}", explanation=explanation)
 
     except Exception as e:
         return render_template("index.html", result=f"Error: {str(e)}")
